@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galton Board Simulation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Galton Board</h1>
+        </header>
+
+        <main class="simulation-container">
+            <canvas id="galtonCanvas"></canvas>
+            <div class="stat-overlay">
+                <span class="label">Balls:</span>
+                <span id="ballCount" class="value">0</span>
+            </div>
+            <div class="controls">
+                    <div class="control-group">
+                    <label for="speedSlider">Spawn Rate <span id="speedWarning" style="display:none; color: #fbbf24; margin-left: 5px;" title="Warning: High spawn rate may reduce performance">⚠️</span></label>
+                    <input type="range" id="speedSlider" min="1" max="20" value="10">
+                    <div class="input-group-merged">
+                        <input type="number" id="speedInput" value="10" min="1" max="100">
+                        <span id="speedValue">x1.0</span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="distSelect">Distribution</label>
+                    <select id="distSelect">
+                        <option value="normal">Normal</option>
+                        <option value="skewed-left">Skewed Left</option>
+                        <option value="skewed-right">Skewed Right</option>
+                        <option value="bimodal">Bimodal</option>
+                        <option value="uniform">Uniform</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label>Board Rows</label>
+                    <div class="row-controls">
+                        <button id="rowsDecrease" class="btn small-btn">-</button>
+                        <span id="rowCount" class="value-display">12</span>
+                        <button id="rowsIncrease" class="btn small-btn">+</button>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="themeSelect">Theme</label>
+                    <select id="themeSelect">
+                        <!-- Populated by script.js from themes.js -->
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <button id="pauseBtn" class="btn" style="min-width: 80px;">Pause</button>
+                    <button id="resetBtn" class="btn">Reset</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="themes.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
